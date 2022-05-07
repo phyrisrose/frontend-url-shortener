@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# frontend-url-shortener
+
+A UI for a url shortener service
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
