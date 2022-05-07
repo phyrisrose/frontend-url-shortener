@@ -16,7 +16,7 @@ const Background = styled.div`
 
 const MainLayout = styled.main`
   margin: 0 auto;
-  max-width: 650px;
+  max-width: 800px;
   padding: 0 1rem;
   background: white;
 `;
