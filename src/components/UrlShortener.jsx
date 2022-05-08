@@ -16,7 +16,9 @@ const UrlShortener = () => {
   /** @todo break out api base url */
   const handleShorten = async () => {
     console.log("handling shorten");
-    const shortUrl = await postData("https://api.bely.me/", { url: longUrl });
+    const shortUrl = await postData("https://api.bely.me/links", {
+      url: longUrl,
+    });
     console.log(shortUrl);
   };
 

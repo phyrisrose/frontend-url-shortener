@@ -8,7 +8,7 @@ export async function postData(url = "", data = {}) {
     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
     headers: {
       "Content-Type": "application/json",
-      "X-Auth-Token": API.KEY,
+      "GB-Access-Token": API.KEY,
       // 'Content-Type': 'application/x-www-form-urlencoded',
     },
     referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
