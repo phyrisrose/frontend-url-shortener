@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 
 /** @todo move to actions */
 import { postData } from "../actions/ajax";
+import { API } from "../constants";
 
 const UrlShortener = () => {
   const [longUrl, setLongUrl] = useState("");
@@ -13,10 +14,8 @@ const UrlShortener = () => {
     setLongUrl(e.target.value);
   };
 
-  /** @todo break out api base url */
   const handleShorten = async () => {
-    console.log("handling shorten");
-    const shortUrl = await postData("https://api.bely.me/links", {
+    const shortUrl = await postData(`${API.BASE}/links`, {
       url: longUrl,
     });
     console.log(shortUrl);
