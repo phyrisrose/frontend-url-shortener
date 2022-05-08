@@ -1,7 +1,12 @@
-import React from "react";
+import * as React from "react";
+import TextField from "@mui/material/TextField";
 
 const UrlShortener = () => {
-  return <div>I'm a url shortener component</div>;
+  return (
+    <div>
+      <TextField id="long-url" label="Url to shorten" variant="outlined" />
+    </div>
+  );
 };
 
 export default UrlShortener;
