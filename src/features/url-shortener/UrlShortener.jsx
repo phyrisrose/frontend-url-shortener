@@ -7,8 +7,8 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
 /** @todo move to actions */
-import { postData } from "../app/ajax";
-import { API } from "../constants";
+import { postData } from "../../app/ajax";
+import { API } from "../../constants";
 
 const UrlShortener = () => {
   const [longUrl, setLongUrl] = useState("");

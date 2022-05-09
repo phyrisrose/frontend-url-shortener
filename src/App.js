@@ -1,7 +1,7 @@
 import Container from "@mui/material/Container";
 
 import Layout from "./Layout";
-import UrlShortener from "./components/UrlShortener";
+import { UrlShortener } from "./features/url-shortener";
 
 function App() {
   return (
