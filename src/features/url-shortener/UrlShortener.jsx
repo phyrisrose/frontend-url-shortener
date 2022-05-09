@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
@@ -6,24 +7,19 @@ import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
-/** @todo move to actions */
-import { postData } from "../../app/ajax";
-import { API } from "../../constants";
+import { shortenAsync } from "./shortnenerSlice";
 
 const UrlShortener = () => {
+  const dispatch = useDispatch();
   const [longUrl, setLongUrl] = useState("");
-  const [shortUrl, setShortUrl] = useState("");
+  const { shortUrl, loading } = useSelector((state) => state.shortener);
 
   const handleLongUrlChange = (e) => {
     setLongUrl(e.target.value);
   };
 
   const handleShorten = async () => {
-    const response = await postData(`${API.BASE}/links`, {
-      url: longUrl,
-    });
-
-    setShortUrl(response.short_url);
+    dispatch(shortenAsync(longUrl));
   };
 
   return (
@@ -41,7 +37,11 @@ const UrlShortener = () => {
             />
           </Grid>
           <Grid item xs={3}>
-            <Button variant="contained" onClick={handleShorten}>
+            <Button
+              variant="contained"
+              onClick={handleShorten}
+              disabled={loading}
+            >
               Shorten
             </Button>
           </Grid>
