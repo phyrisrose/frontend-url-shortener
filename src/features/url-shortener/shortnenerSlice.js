@@ -31,6 +31,7 @@ export const shortenerSlice = createSlice({
         state.loading = false;
         state.shortUrl = action.payload.short_url;
       });
+    /** @todo add error case */
   },
 });
 

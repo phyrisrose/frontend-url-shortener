@@ -9,6 +9,10 @@ import Typography from "@mui/material/Typography";
 
 import { shortenAsync, clearShortUrl } from "./shortnenerSlice";
 
+/**
+ * @todo the shortened url can be displayed a bit more prominently,
+ * than it is right now
+ * */
 const UrlShortener = () => {
   const dispatch = useDispatch();
   const [longUrl, setLongUrl] = useState("");
