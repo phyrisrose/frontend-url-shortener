@@ -19,9 +19,7 @@ const UrlShortener = () => {
     dispatch(clearShortUrl());
   };
 
-  const handleShorten = async () => {
-    dispatch(shortenAsync(longUrl));
-  };
+  const handleShorten = () => dispatch(shortenAsync(longUrl));
 
   return (
     <Card sx={{ minWidth: 275 }}>
