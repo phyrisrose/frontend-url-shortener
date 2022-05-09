@@ -30,7 +30,7 @@ const UrlShortener = () => {
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
         <Grid container spacing={2} style={{ alignItems: "center" }}>
-          <Grid item xs={8}>
+          <Grid item xs={9}>
             <TextField
               id="long-url"
               label="Enter long url"
@@ -40,7 +40,7 @@ const UrlShortener = () => {
               fullWidth
             />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={3}>
             <Button variant="contained" onClick={handleShorten}>
               Shorten
             </Button>
