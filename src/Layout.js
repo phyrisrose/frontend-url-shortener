@@ -14,13 +14,6 @@ const Background = styled.div`
   height: 100vh;
 `;
 
-const MainLayout = styled.main`
-  margin: 0 auto;
-  max-width: 800px;
-  padding: 0 1rem;
-  background: white;
-`;
-
 const Offset = styled("div")(({ theme }) => theme.mixins.toolbar);
 
 const Layout = ({ children }) => (
@@ -34,9 +27,7 @@ const Layout = ({ children }) => (
       </Toolbar>
     </AppBar>
     <Offset />
-    <Background>
-      <MainLayout>{children}</MainLayout>
-    </Background>
+    <Background>{children}</Background>
   </ThemeProvider>
 );
 
