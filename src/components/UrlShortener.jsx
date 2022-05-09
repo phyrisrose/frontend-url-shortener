@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
 
 /** @todo move to actions */
 import { postData } from "../actions/ajax";
@@ -11,16 +12,18 @@ import { API } from "../constants";
 
 const UrlShortener = () => {
   const [longUrl, setLongUrl] = useState("");
+  const [shortUrl, setShortUrl] = useState("");
 
   const handleLongUrlChange = (e) => {
     setLongUrl(e.target.value);
   };
 
   const handleShorten = async () => {
-    const shortUrl = await postData(`${API.BASE}/links`, {
+    const response = await postData(`${API.BASE}/links`, {
       url: longUrl,
     });
-    console.log(shortUrl);
+
+    setShortUrl(response.short_url);
   };
 
   return (
@@ -30,7 +33,7 @@ const UrlShortener = () => {
           <Grid item xs={8}>
             <TextField
               id="long-url"
-              label="Url to shorten"
+              label="Enter long url"
               variant="outlined"
               value={longUrl}
               onChange={handleLongUrlChange}
@@ -40,7 +43,12 @@ const UrlShortener = () => {
           <Grid item xs={4}>
             <Button variant="contained" onClick={handleShorten}>
               Shorten
-            </Button>{" "}
+            </Button>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="body" component="div">
+              {shortUrl}
+            </Typography>
           </Grid>
         </Grid>
       </CardContent>
