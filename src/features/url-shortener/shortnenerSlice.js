@@ -17,7 +17,11 @@ export const shortenAsync = createAsyncThunk(
 export const shortenerSlice = createSlice({
   name: "shortner",
   initialState,
-  reducers: {},
+  reducers: {
+    clearShortUrl: (state) => {
+      state.shortUrl = "";
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(shortenAsync.pending, (state) => {
@@ -29,5 +33,7 @@ export const shortenerSlice = createSlice({
       });
   },
 });
+
+export const { clearShortUrl } = shortenerSlice.actions;
 
 export default shortenerSlice.reducer;

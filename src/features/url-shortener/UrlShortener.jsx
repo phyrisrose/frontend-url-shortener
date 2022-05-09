@@ -7,7 +7,7 @@ import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
-import { shortenAsync } from "./shortnenerSlice";
+import { shortenAsync, clearShortUrl } from "./shortnenerSlice";
 
 const UrlShortener = () => {
   const dispatch = useDispatch();
@@ -16,6 +16,7 @@ const UrlShortener = () => {
 
   const handleLongUrlChange = (e) => {
     setLongUrl(e.target.value);
+    dispatch(clearShortUrl());
   };
 
   const handleShorten = async () => {
