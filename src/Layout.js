@@ -9,9 +9,10 @@ import { brown } from "@mui/material/colors";
 
 import theme from "./theme";
 
-const Background = styled.div`
+const Background = styled.main`
   background: ${brown[50]};
   height: 100vh;
+  padding-top: 1rem;
 `;
 
 const Offset = styled("div")(({ theme }) => theme.mixins.toolbar);
