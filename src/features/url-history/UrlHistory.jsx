@@ -9,11 +9,15 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemText from "@mui/material/ListItemText";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
-import FolderIcon from "@mui/icons-material/Folder";
+import LinkIcon from "@mui/icons-material/Link";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 import { getHistoryAsync } from "./historySlice";
 
+/**
+ * @todo could actually make the displayed urls
+ * clickable links
+ */
 const UrlHistory = () => {
   const dispatch = useDispatch();
   const { urls } = useSelector((state) => state.history);
@@ -25,10 +29,12 @@ const UrlHistory = () => {
      * to run once, on load */
   }, []);
 
-  console.log("urls", urls);
-
+  /**
+   * @todo wire up the delete icon.
+   * Key on slug
+   */
   return (
-    <Card sx={{ minWidth: 275 }}>
+    <Card sx={{ minWidth: 275, marginTop: "1rem" }}>
       <CardContent>
         <Typography color="text.secondary" gutterBottom>
           Url History
@@ -38,18 +44,18 @@ const UrlHistory = () => {
             <ListItem
               secondaryAction={
                 <IconButton edge="end" aria-label="delete">
-                  <DeleteIcon />
+                  <DeleteIcon color="primary" />
                 </IconButton>
               }
             >
               <ListItemAvatar>
                 <Avatar>
-                  <FolderIcon />
+                  <LinkIcon />
                 </Avatar>
               </ListItemAvatar>
               <ListItemText
-                primary="Single-line item"
-                secondary="Secondary text"
+                primary={url.url}
+                secondary={`short url: ${url.short_url}`}
               />
             </ListItem>
           ))}
