@@ -17,6 +17,10 @@ const Background = styled.main`
 
 const Offset = styled("div")(({ theme }) => theme.mixins.toolbar);
 
+/**
+ *
+ * @todo I wonder if ThemeProvider shoudld live in index.js...
+ */
 const Layout = ({ children }) => (
   <ThemeProvider theme={theme}>
     <CssBaseline />

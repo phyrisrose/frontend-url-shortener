@@ -1,5 +1,16 @@
 import { API } from "../constants";
 
+export async function getData(url = "") {
+  const response = await fetch(url, {
+    cache: "no-cache",
+    headers: {
+      "GB-Access-Token": API.KEY,
+    },
+    referrerPolicy: "no-referrer",
+  });
+  return response.json();
+}
+
 export async function postData(url = "", data = {}) {
   const response = await fetch(url, {
     method: "POST",
