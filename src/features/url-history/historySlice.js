@@ -12,7 +12,7 @@ const initialState = {
   loading: false,
 };
 
-const getHistoryAsync = createAsyncThunk("history/get", async () => {
+export const getHistoryAsync = createAsyncThunk("history/get", async () => {
   const response = await getHistory();
   return response;
 });
