@@ -1,6 +1,6 @@
 import { getData } from "../../app/ajax";
 import { API } from "../../constants";
 
-export function shortenUrl() {
+export function getHistory() {
   return getData(`${API.BASE}/links`);
 }
