@@ -1,16 +1,17 @@
 import { API } from "../constants";
 
-/** @todo check that this works */
-export async function getData(url = "", data = {}) {
+/**
+ * @todo check that this works
+ * specifically, get parameters
+ */
+export async function getData(url = "") {
   const response = await fetch(url, {
-    method: "GET",
     cache: "no-cache",
     headers: {
-      "Content-Type": "application/json",
+      // "Content-Type": "application/json",
       "GB-Access-Token": API.KEY,
     },
     referrerPolicy: "no-referrer",
-    body: JSON.stringify(data),
   });
   return response.json();
 }
