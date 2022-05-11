@@ -55,6 +55,9 @@ const UrlHistory = () => {
                 </Avatar>
               </ListItemAvatar>
               <ListItemText
+                primaryTypographyProps={{
+                  style: { textOverflow: "ellipsis", overflow: "hidden" },
+                }}
                 primary={url.url}
                 secondary={`short url: ${url.short_url}`}
               />
