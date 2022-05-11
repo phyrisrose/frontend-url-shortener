@@ -8,6 +8,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
 import { shortenAsync, clearShortUrl } from "./shortnenerSlice";
+import { getHistoryAsync } from "../url-history";
 
 /**
  * @todo the shortened url can be displayed a bit more prominently,
@@ -23,7 +24,8 @@ const UrlShortener = () => {
     dispatch(clearShortUrl());
   };
 
-  const handleShorten = () => dispatch(shortenAsync(longUrl));
+  const handleShorten = () =>
+    dispatch(shortenAsync(longUrl)).then(() => dispatch(getHistoryAsync()));
 
   return (
     <Card sx={{ minWidth: 275 }}>
