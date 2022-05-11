@@ -42,6 +42,7 @@ const UrlHistory = () => {
         <List>
           {urls.map((url) => (
             <ListItem
+              key={url.slug}
               secondaryAction={
                 <IconButton edge="end" aria-label="delete">
                   <DeleteIcon color="primary" />
