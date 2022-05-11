@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getHistory } from "./historyAPI";
+import { getHistory, expireUrl } from "./historyAPI";
 
 const initialState = {
   urls: [
@@ -17,6 +17,14 @@ export const getHistoryAsync = createAsyncThunk("history/get", async () => {
   return response;
 });
 
+export const expireUrlAsync = createAsyncThunk(
+  "history/expire",
+  async (slug) => {
+    const response = await expireUrl(slug);
+    return response;
+  }
+);
+
 export const historySlice = createSlice({
   name: "history",
   initialState,
@@ -29,6 +37,17 @@ export const historySlice = createSlice({
       .addCase(getHistoryAsync.fulfilled, (state, action) => {
         state.loading = false;
         state.urls = action.payload;
+      })
+      .addCase(expireUrlAsync.pending, (state) => {
+        /**
+         * @todo loading flag for getting, and deleting would
+         * ideally not be one and the same
+         */
+        state.loading = true;
+      })
+      .addCase(expireUrlAsync.fulfilled, (state) => {
+        console.log("expired successfully");
+        state.loading = false;
       });
     /** @todo add error case */
   },

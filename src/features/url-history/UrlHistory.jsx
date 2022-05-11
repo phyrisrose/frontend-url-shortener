@@ -12,7 +12,7 @@ import IconButton from "@mui/material/IconButton";
 import LinkIcon from "@mui/icons-material/Link";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-import { getHistoryAsync } from "./historySlice";
+import { getHistoryAsync, expireUrlAsync } from "./historySlice";
 
 /**
  * @todo could actually make the displayed urls
@@ -29,6 +29,11 @@ const UrlHistory = () => {
      * to run once, on load */
   }, []);
 
+  const handleExpire = (slug) => {
+    dispatch(expireUrlAsync(slug));
+    dispatch(getHistoryAsync());
+  };
+
   /**
    * @todo wire up the delete icon.
    * Key on slug
@@ -44,7 +49,7 @@ const UrlHistory = () => {
             <ListItem
               key={url.slug}
               secondaryAction={
-                <IconButton edge="end" aria-label="delete">
+                <IconButton edge="end" onClick={() => handleExpire(url.slug)}>
                   <DeleteIcon color="primary" />
                 </IconButton>
               }
