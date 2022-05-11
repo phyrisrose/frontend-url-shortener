@@ -37,17 +37,6 @@ export const historySlice = createSlice({
       .addCase(getHistoryAsync.fulfilled, (state, action) => {
         state.loading = false;
         state.urls = action.payload;
-      })
-      .addCase(expireUrlAsync.pending, (state) => {
-        /**
-         * @todo loading flag for getting, and deleting would
-         * ideally not be one and the same
-         */
-        state.loading = true;
-      })
-      .addCase(expireUrlAsync.fulfilled, (state) => {
-        console.log("expired successfully");
-        state.loading = false;
       });
     /** @todo add error case */
   },
