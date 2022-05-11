@@ -30,14 +30,9 @@ const UrlHistory = () => {
   }, []);
 
   const handleExpire = (slug) => {
-    dispatch(expireUrlAsync(slug));
-    dispatch(getHistoryAsync());
+    dispatch(expireUrlAsync(slug)).then(() => dispatch(getHistoryAsync()));
   };
 
-  /**
-   * @todo wire up the delete icon.
-   * Key on slug
-   */
   return (
     <Card sx={{ minWidth: 275, marginTop: "1rem" }}>
       <CardContent>
