@@ -2,9 +2,11 @@
 
 A UI for a url shortener service
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## A word on design choices
 
-## Available Scripts
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Redux is used to handle data storage and interactions, and building blocks are taken from Material UI component library.
+
+## Available scripts
 
 In the project directory, you can run:
 

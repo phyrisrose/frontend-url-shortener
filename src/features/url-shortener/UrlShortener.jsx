@@ -5,15 +5,11 @@ import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
 
 import { shortenAsync, clearShortUrl } from "./shortnenerSlice";
 import { getHistoryAsync } from "../url-history";
 
-/**
- * @todo the shortened url can be displayed a bit more prominently,
- * than it is right now
- * */
 const UrlShortener = () => {
   const dispatch = useDispatch();
   const [longUrl, setLongUrl] = useState("");
@@ -51,9 +47,14 @@ const UrlShortener = () => {
             </Button>
           </Grid>
           <Grid item xs={12}>
-            <Typography variant="body" component="div">
+            <Link
+              href={shortUrl}
+              color="inherit"
+              target="_blank"
+              rel="noopener"
+            >
               {shortUrl}
-            </Typography>
+            </Link>
           </Grid>
         </Grid>
       </CardContent>
