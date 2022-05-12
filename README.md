@@ -1,6 +1,8 @@
 # frontend-url-shortener
 
-A UI for a url shortener service
+A UI for a url shortener service.
+
+Designed to communicate with the folowing api [https://api.bely.me/docs](https://api.bely.me/docs)
 
 ## A word on design choices
 
