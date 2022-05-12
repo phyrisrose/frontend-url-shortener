@@ -29,7 +29,7 @@ const UrlShortener = () => {
         <Grid container spacing={2} style={{ alignItems: "center" }}>
           <Grid item xs={9}>
             <TextField
-              id="long-url"
+              data-testid="long-url"
               label="Enter long url"
               variant="outlined"
               value={longUrl}
